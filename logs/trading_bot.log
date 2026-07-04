@@ -6,3 +6,54 @@
 2026-07-04 15:28:01 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 0.01, 'type': 'LIMIT', 'price': 65000.0, 'timeInForce': 'GTC', 'timestamp': 1783159081559, 'recvWindow': 5000, 'signature': '4ffc23a1bd08698b9c2a152d36544122373621ae7a343c9c4fb77374f6917bc3'} | headers={'X-MBX-APIKEY': 'mock...3456'}
 2026-07-04 15:28:01 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId": 458721360, "symbol": "BTCUSDT", "status": "NEW", "clientOrderId": "x-FPt5yP8I", "price": "65000.00", "avgPrice": "0.00", "origQty": "0.01", "executedQty": "0.00", "cumQty": "0.00", "timeInForce": "GTC", "type": "LIMIT", "side": "SELL", "positionSide": "BOTH", "updateTime": 1720092405000}
 2026-07-04 15:28:01 | INFO     | bot.orders | Order placed successfully: {'orderId': 458721360, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-FPt5yP8I', 'price': '65000.00', 'avgPrice': '0.00', 'origQty': '0.01', 'executedQty': '0.00', 'cumQty': '0.00', 'timeInForce': 'GTC', 'type': 'LIMIT', 'side': 'SELL', 'positionSide': 'BOTH', 'updateTime': 1720092405000}
+2026-07-04 15:35:42 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:35:42 | ERROR    | bot.orders | Order rejected by Binance: Binance API error [400] code=-2010: Account has insufficient balance
+2026-07-04 15:35:42 | ERROR    | cli | Input validation failed: Invalid symbol 'BTC'. Expected format like 'BTCUSDT' (5-20 alphanumeric chars).
+2026-07-04 15:35:42 | ERROR    | cli | Input validation failed: Price is required for LIMIT orders.
+2026-07-04 15:35:42 | ERROR    | cli | Input validation failed: Missing required argument(s): --type. Run with --interactive for guided prompts, or --help for usage.
+2026-07-04 15:35:42 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:35:42 | ERROR    | bot.orders | Order failed due to network error: connection timed out
+2026-07-04 15:35:42 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=0.01 price=65000.0 stop_price=None
+2026-07-04 15:35:42 | INFO     | bot.orders | Order placed successfully: {'orderId': 1, 'status': 'FILLED', 'executedQty': '0.01', 'avgPrice': '65000.0', 'clientOrderId': 'x-test'}
+2026-07-04 15:35:42 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:35:42 | INFO     | bot.orders | Order placed successfully: {'orderId': 1, 'status': 'FILLED', 'executedQty': '0.01', 'avgPrice': '65000.0', 'clientOrderId': 'x-test'}
+2026-07-04 15:36:13 | ERROR    | __main__ | Input validation failed: Invalid symbol 'INVALID_PAIR'. Expected format like 'BTCUSDT' (5-20 alphanumeric chars).
+2026-07-04 15:39:00 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=2.0 price=None stop_price=None
+2026-07-04 15:39:00 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'quantity': 2.0, 'type': 'MARKET', 'timestamp': 1783159740110, 'recvWindow': 5000, 'signature': 'e6dc70f7636ea317fba5e1606a854b17f91c5d6e205362b52eab689ec1a51ece'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:39:00 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=400 | body={"code":-2019,"msg":"Margin is insufficient."}
+2026-07-04 15:39:00 | ERROR    | bot.client | API error on POST /fapi/v1/order -> status=400 code=-2019 msg=Margin is insufficient.
+2026-07-04 15:39:00 | ERROR    | bot.orders | Order rejected by Binance: Binance API error [400] code=-2019: Margin is insufficient.
+2026-07-04 15:39:15 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:39:15 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'quantity': 0.01, 'type': 'MARKET', 'timestamp': 1783159755980, 'recvWindow': 5000, 'signature': '2257ac5d701c94c0e390e26c74411524eb785a286384005bae67c8909950994e'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:39:16 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18940246208,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"CmGLqXTNa9c5Zsi7EypSA2","price":"0.00","origQty":"0.0100","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783159757094}
+2026-07-04 15:39:16 | INFO     | bot.orders | Order placed successfully: {'orderId': 18940246208, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'CmGLqXTNa9c5Zsi7EypSA2', 'price': '0.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783159757094}
+2026-07-04 15:39:17 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=0.01 price=65000.0 stop_price=None
+2026-07-04 15:39:17 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 0.01, 'type': 'LIMIT', 'price': 65000.0, 'timeInForce': 'GTC', 'timestamp': 1783159757259, 'recvWindow': 5000, 'signature': 'd4fc62f76cf7dca59694bd3eda5f4e1e5d3e1bd556f5eb121cfbef47e4297af6'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:39:18 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=502 | body=<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+2026-07-04 15:39:18 | ERROR    | bot.client | API error on POST /fapi/v1/order -> status=502 code=None msg=<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+2026-07-04 15:39:18 | ERROR    | bot.orders | Order rejected by Binance: Binance API error [502] code=None: <html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+2026-07-04 15:39:47 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=0.01 price=65000.0 stop_price=None
+2026-07-04 15:39:47 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 0.01, 'type': 'LIMIT', 'price': 65000.0, 'timeInForce': 'GTC', 'timestamp': 1783159787757, 'recvWindow': 5000, 'signature': 'f00cc80cb0851aadaac7b18db2f24cd9316ddd32e5d6933f53712acde1a9c817'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:39:48 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18940369008,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"sMbgPgT2R9uVEMNEQJ1uuC","price":"65000.00","origQty":"0.0100","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783159788947}
+2026-07-04 15:39:48 | INFO     | bot.orders | Order placed successfully: {'orderId': 18940369008, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'sMbgPgT2R9uVEMNEQJ1uuC', 'price': '65000.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783159788947}
