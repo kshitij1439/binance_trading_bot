@@ -9,6 +9,7 @@ from typing import Any, Dict, Optional
 
 from bot.client import BinanceAPIError, BinanceFuturesTestnetClient, NetworkError
 from bot.logging_config import get_logger
+from bot.utils import safe_print
 
 logger = get_logger(__name__)
 
@@ -61,16 +62,16 @@ class OrderManager:
         self.client = client
 
     def print_summary(self, req: OrderRequest) -> None:
-        print("\n=== Order Request Summary ===")
-        print(f"  Symbol      : {req.symbol}")
-        print(f"  Side        : {req.side}")
-        print(f"  Type        : {req.order_type}")
-        print(f"  Quantity    : {req.quantity}")
+        safe_print("\n=== Order Request Summary ===")
+        safe_print(f"  Symbol      : {req.symbol}")
+        safe_print(f"  Side        : {req.side}")
+        safe_print(f"  Type        : {req.order_type}")
+        safe_print(f"  Quantity    : {req.quantity}")
         if req.price is not None:
-            print(f"  Price       : {req.price}")
+            safe_print(f"  Price       : {req.price}")
         if req.stop_price is not None:
-            print(f"  Stop Price  : {req.stop_price}")
-        print("==============================\n")
+            safe_print(f"  Stop Price  : {req.stop_price}")
+        safe_print("==============================\n")
 
     def place(self, req: OrderRequest) -> Dict[str, Any]:
         self.print_summary(req)
@@ -88,11 +89,11 @@ class OrderManager:
             response = self.client.place_order(**req.to_binance_params())
         except BinanceAPIError as exc:
             logger.error("Order rejected by Binance: %s", exc)
-            print(f"❌ FAILED: Binance rejected the order — {exc.message} (code={exc.code})")
+            safe_print(f"❌ FAILED: Binance rejected the order — {exc.message} (code={exc.code})")
             raise
         except NetworkError as exc:
             logger.error("Order failed due to network error: %s", exc)
-            print(f"❌ FAILED: Network error while placing order — {exc}")
+            safe_print(f"❌ FAILED: Network error while placing order — {exc}")
             raise
 
         self._print_response(response)
@@ -100,13 +101,13 @@ class OrderManager:
         return response
 
     def _print_response(self, response: Dict[str, Any]) -> None:
-        print("=== Order Response ===")
-        print(f"  Order ID     : {response.get('orderId')}")
-        print(f"  Status       : {response.get('status')}")
-        print(f"  Executed Qty : {response.get('executedQty')}")
+        safe_print("=== Order Response ===")
+        safe_print(f"  Order ID     : {response.get('orderId')}")
+        safe_print(f"  Status       : {response.get('status')}")
+        safe_print(f"  Executed Qty : {response.get('executedQty')}")
         avg_price = response.get("avgPrice")
         if avg_price is not None:
-            print(f"  Avg Price    : {avg_price}")
-        print(f"  Client OrderID: {response.get('clientOrderId')}")
-        print("=======================")
-        print("✅ SUCCESS: Order placed on Binance Futures Testnet.\n")
+            safe_print(f"  Avg Price    : {avg_price}")
+        safe_print(f"  Client OrderID: {response.get('clientOrderId')}")
+        safe_print("=======================")
+        safe_print("✅ SUCCESS: Order placed on Binance Futures Testnet.\n")

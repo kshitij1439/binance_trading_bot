@@ -33,6 +33,7 @@ from dotenv import load_dotenv
 from bot.client import BinanceAPIError, BinanceFuturesTestnetClient, NetworkError, DEFAULT_BASE_URL
 from bot.logging_config import get_logger
 from bot.orders import OrderManager, OrderRequest
+from bot.utils import safe_print
 from bot.validators import (
     ValidationError,
     validate_order_type,
@@ -99,17 +100,17 @@ def _prompt(label: str, validator, *validator_args):
         try:
             raw = input(label)
         except (EOFError, KeyboardInterrupt):
-            print("\nCancelled.")
+            safe_print("\nCancelled.")
             sys.exit(130)
         try:
             return validator(raw, *validator_args) if validator_args else validator(raw)
         except ValidationError as exc:
-            print(f"  ⚠ {exc}  — try again.")
+            safe_print(f"  ⚠ {exc}  — try again.")
 
 
 def run_interactive() -> OrderRequest:
     """Guided prompt flow: asks one field at a time, validating as it goes."""
-    print("=== Interactive Order Builder (Binance Futures Testnet) ===")
+    safe_print("=== Interactive Order Builder (Binance Futures Testnet) ===")
     symbol = _prompt("Symbol (e.g. BTCUSDT): ", validate_symbol)
     side = _prompt("Side (BUY/SELL): ", validate_side)
     order_type = _prompt("Order type (MARKET/LIMIT/STOP_LIMIT): ", validate_order_type)
@@ -130,7 +131,7 @@ def run_interactive() -> OrderRequest:
             if tif in ("GTC", "IOC", "FOK"):
                 time_in_force = tif
                 break
-            print("  ⚠ Must be one of GTC, IOC, FOK — try again.")
+            safe_print("  ⚠ Must be one of GTC, IOC, FOK — try again.")
 
     return OrderRequest(
         symbol=symbol,
@@ -199,14 +200,14 @@ def main(argv=None) -> int:
             request = build_order_from_args(args)
     except ValidationError as exc:
         logger.error("Input validation failed: %s", exc)
-        print(f"❌ Invalid input: {exc}")
+        safe_print(f"❌ Invalid input: {exc}")
         return 1
 
     api_key = args.api_key or os.getenv("BINANCE_API_KEY")
     api_secret = args.api_secret or os.getenv("BINANCE_API_SECRET")
 
     if not api_key or not api_secret:
-        print(
+        safe_print(
             "❌ Missing API credentials. Set BINANCE_API_KEY / BINANCE_API_SECRET "
             "(env vars or .env file) or pass --api-key / --api-secret."
         )
@@ -223,7 +224,7 @@ def main(argv=None) -> int:
         return 3
     except Exception as exc:  # last-resort safety net; never crash silently
         logger.exception("Unexpected error while placing order")
-        print(f"❌ Unexpected error: {exc}")
+        safe_print(f"❌ Unexpected error: {exc}")
         return 4
 
 
