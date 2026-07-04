@@ -57,3 +57,226 @@
 2026-07-04 15:39:47 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 0.01, 'type': 'LIMIT', 'price': 65000.0, 'timeInForce': 'GTC', 'timestamp': 1783159787757, 'recvWindow': 5000, 'signature': 'f00cc80cb0851aadaac7b18db2f24cd9316ddd32e5d6933f53712acde1a9c817'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
 2026-07-04 15:39:48 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18940369008,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"sMbgPgT2R9uVEMNEQJ1uuC","price":"65000.00","origQty":"0.0100","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783159788947}
 2026-07-04 15:39:48 | INFO     | bot.orders | Order placed successfully: {'orderId': 18940369008, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'sMbgPgT2R9uVEMNEQJ1uuC', 'price': '65000.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783159788947}
+2026-07-04 15:43:05 | ERROR    | __main__ | Input validation failed: Invalid symbol 'INVALID_PAIR'. Expected format like 'BTCUSDT' (5-20 alphanumeric chars).
+2026-07-04 15:43:38 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=1.0 price=None stop_price=None
+2026-07-04 15:43:38 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'quantity': 1.0, 'type': 'MARKET', 'timestamp': 1783160018580, 'recvWindow': 5000, 'signature': '4095dad104823ab728a2ee6ab222d18f4fe8a6bffd4ebcd7f5eeaf6d55100fec'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:43:39 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18941279884,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"Kp9aI1N7F3rlqDaQtAiSL5","price":"0.00","origQty":"1.0000","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783160019675}
+2026-07-04 15:43:39 | INFO     | bot.orders | Order placed successfully: {'orderId': 18941279884, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'Kp9aI1N7F3rlqDaQtAiSL5', 'price': '0.00', 'origQty': '1.0000', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783160019675}
+2026-07-04 15:44:19 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:44:19 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'quantity': 0.01, 'type': 'MARKET', 'timestamp': 1783160059630, 'recvWindow': 5000, 'signature': '9a82d2331c15d6b9c8811451d606f81721e6a99604af8f5a074b0656b161b95e'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:44:20 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18941449241,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"VzOj90jqkFWHTTKmzBYOF0","price":"0.00","origQty":"0.0100","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783160060745}
+2026-07-04 15:44:20 | INFO     | bot.orders | Order placed successfully: {'orderId': 18941449241, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'VzOj90jqkFWHTTKmzBYOF0', 'price': '0.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783160060745}
+2026-07-04 15:44:20 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=0.01 price=66000.0 stop_price=None
+2026-07-04 15:44:20 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 0.01, 'type': 'LIMIT', 'price': 66000.0, 'timeInForce': 'GTC', 'timestamp': 1783160060970, 'recvWindow': 5000, 'signature': '93ba64192961f6188c2f025e6594576c41678323472fb42708f0c877f8c6026c'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:44:21 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18941453712,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"NIh3cWLVrSwLQIlXGJc0Ai","price":"66000.00","origQty":"0.0100","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783160062120}
+2026-07-04 15:44:21 | INFO     | bot.orders | Order placed successfully: {'orderId': 18941453712, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'NIh3cWLVrSwLQIlXGJc0Ai', 'price': '66000.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783160062120}
+2026-07-04 15:54:16 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:54:16 | ERROR    | bot.orders | Order rejected by Binance: Binance API error [400] code=-2010: Account has insufficient balance
+2026-07-04 15:54:16 | ERROR    | cli | Input validation failed: Invalid symbol 'BTC'. Expected format like 'BTCUSDT' (5-20 alphanumeric chars).
+2026-07-04 15:54:16 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:54:16 | INFO     | bot.orders | Order placed successfully: <MagicMock name='BinanceFuturesTestnetClient().place_order()' id='2040598713296'>
+2026-07-04 15:54:16 | ERROR    | cli | Input validation failed: Price is required for LIMIT orders.
+2026-07-04 15:54:16 | ERROR    | cli | Input validation failed: Missing required argument(s): --type. Run with --interactive for guided prompts, or --help for usage.
+2026-07-04 15:54:16 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:54:16 | ERROR    | bot.orders | Order failed due to network error: connection timed out
+2026-07-04 15:54:16 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=0.01 price=65000.0 stop_price=None
+2026-07-04 15:54:16 | INFO     | bot.orders | Order placed successfully: {'orderId': 1, 'status': 'FILLED', 'executedQty': '0.01', 'avgPrice': '65000.0', 'clientOrderId': 'x-test'}
+2026-07-04 15:54:16 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:54:16 | INFO     | bot.orders | Order placed successfully: {'orderId': 1, 'status': 'FILLED', 'executedQty': '0.01', 'avgPrice': '65000.0', 'clientOrderId': 'x-test'}
+2026-07-04 15:54:52 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:54:52 | ERROR    | bot.orders | Order rejected by Binance: Binance API error [400] code=-2010: Account has insufficient balance
+2026-07-04 15:54:52 | ERROR    | cli | Input validation failed: Invalid symbol 'BTC'. Expected format like 'BTCUSDT' (5-20 alphanumeric chars).
+2026-07-04 15:54:52 | ERROR    | cli | Input validation failed: Price is required for LIMIT orders.
+2026-07-04 15:54:52 | ERROR    | cli | Input validation failed: Missing required argument(s): --type. Run with --interactive for guided prompts, or --help for usage.
+2026-07-04 15:54:52 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:54:52 | ERROR    | bot.orders | Order failed due to network error: connection timed out
+2026-07-04 15:54:52 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=0.01 price=65000.0 stop_price=None
+2026-07-04 15:54:52 | INFO     | bot.orders | Order placed successfully: {'orderId': 1, 'status': 'FILLED', 'executedQty': '0.01', 'avgPrice': '65000.0', 'clientOrderId': 'x-test'}
+2026-07-04 15:54:52 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:54:52 | INFO     | bot.orders | Order placed successfully: {'orderId': 1, 'status': 'FILLED', 'executedQty': '0.01', 'avgPrice': '65000.0', 'clientOrderId': 'x-test'}
+2026-07-04 15:56:00 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 15:56:00 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'quantity': 0.01, 'type': 'MARKET', 'timestamp': 1783160760110, 'recvWindow': 5000, 'signature': '1e933aa016125616cab66306a8e891aaeddbbfbe2305a3a2a6f44660b1c9a280'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:56:01 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18944174564,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"VhlLuo5zTZUr5TncHVzA2q","price":"0.00","origQty":"0.0100","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783160761733}
+2026-07-04 15:56:01 | INFO     | bot.orders | Order placed successfully: {'orderId': 18944174564, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'VhlLuo5zTZUr5TncHVzA2q', 'price': '0.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783160761733}
+2026-07-04 15:56:02 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=0.01 price=66000.0 stop_price=None
+2026-07-04 15:56:02 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 0.01, 'type': 'LIMIT', 'price': 66000.0, 'timeInForce': 'GTC', 'timestamp': 1783160762959, 'recvWindow': 5000, 'signature': '161dc93709ae96c913a4ebcd3b787a7bba5fe386d9f852800806829e7ce5982b'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 15:56:04 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18944188351,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"t97ZakLkdy7M57u2R8bFWg","price":"66000.00","origQty":"0.0100","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783160764962}
+2026-07-04 15:56:04 | INFO     | bot.orders | Order placed successfully: {'orderId': 18944188351, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 't97ZakLkdy7M57u2R8bFWg', 'price': '66000.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783160764962}
+2026-07-04 17:49:09 | INFO     | bot.orders | Placing MARKET SELL order | symbol=BTCUSDT qty=2.0 price=None stop_price=None
+2026-07-04 17:49:09 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 2.0, 'type': 'MARKET', 'timestamp': 1783167549182, 'recvWindow': 5000, 'signature': '712cbbeaf59d4f21747424df82baef9335971724881a7aa1794e14ee644d9569'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 17:49:10 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18970122197,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"RHRsugV0seXbSRFJIFY5sC","price":"0.00","origQty":"2.0000","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783167550528}
+2026-07-04 17:49:10 | INFO     | bot.orders | Order placed successfully: {'orderId': 18970122197, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'RHRsugV0seXbSRFJIFY5sC', 'price': '0.00', 'origQty': '2.0000', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783167550528}
+2026-07-04 17:54:05 | ERROR    | cli | Unexpected error while placing order
+Traceback (most recent call last):
+  File "E:\assignment projects\binance_trad_bot\cli.py", line 220, in main
+    result = manager.place(request, skip_confirm=not interactive)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\assignment projects\binance_trad_bot\bot\orders.py", line 73, in place
+    print_order_summary(
+  File "E:\assignment projects\binance_trad_bot\bot\utils.py", line 103, in print_order_summary
+    console.print(panel)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 1704, in print
+    with self:
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\kshit\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4cb' in position 0: character maps to <undefined>
+2026-07-04 17:54:05 | ERROR    | cli | Input validation failed: Invalid symbol 'BTC'. Expected format like 'BTCUSDT' (5-20 alphanumeric chars).
+2026-07-04 17:54:05 | ERROR    | cli | Input validation failed: Price is required for LIMIT orders.
+2026-07-04 17:54:05 | ERROR    | cli | Input validation failed: Missing required argument(s): --type. Run with --interactive for guided prompts, or --help for usage.
+2026-07-04 17:54:05 | ERROR    | cli | Unexpected error while placing order
+Traceback (most recent call last):
+  File "E:\assignment projects\binance_trad_bot\cli.py", line 220, in main
+    result = manager.place(request, skip_confirm=not interactive)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\assignment projects\binance_trad_bot\bot\orders.py", line 73, in place
+    print_order_summary(
+  File "E:\assignment projects\binance_trad_bot\bot\utils.py", line 103, in print_order_summary
+    console.print(panel)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 1704, in print
+    with self:
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\kshit\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4cb' in position 0: character maps to <undefined>
+2026-07-04 17:54:05 | ERROR    | cli | Unexpected error while placing order
+Traceback (most recent call last):
+  File "E:\assignment projects\binance_trad_bot\cli.py", line 220, in main
+    result = manager.place(request, skip_confirm=not interactive)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\assignment projects\binance_trad_bot\bot\orders.py", line 73, in place
+    print_order_summary(
+  File "E:\assignment projects\binance_trad_bot\bot\utils.py", line 103, in print_order_summary
+    console.print(panel)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 1704, in print
+    with self:
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\kshit\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4cb' in position 0: character maps to <undefined>
+2026-07-04 17:54:05 | ERROR    | cli | Unexpected error while placing order
+Traceback (most recent call last):
+  File "E:\assignment projects\binance_trad_bot\cli.py", line 220, in main
+    result = manager.place(request, skip_confirm=not interactive)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\assignment projects\binance_trad_bot\bot\orders.py", line 73, in place
+    print_order_summary(
+  File "E:\assignment projects\binance_trad_bot\bot\utils.py", line 103, in print_order_summary
+    console.print(panel)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 1704, in print
+    with self:
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "E:\assignment projects\binance_trad_bot\.venv\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\kshit\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4cb' in position 0: character maps to <undefined>
+2026-07-04 18:01:58 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 18:01:58 | ERROR    | bot.orders | Order rejected by Binance: Binance API error [400] code=-2010: Account has insufficient balance
+2026-07-04 18:01:58 | ERROR    | cli | Input validation failed: Invalid symbol 'BTC'. Expected format like 'BTCUSDT' (5-20 alphanumeric chars).
+2026-07-04 18:01:58 | ERROR    | cli | Input validation failed: Price is required for LIMIT orders.
+2026-07-04 18:01:58 | ERROR    | cli | Input validation failed: Missing required argument(s): --type. Run with --interactive for guided prompts, or --help for usage.
+2026-07-04 18:01:58 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 18:01:58 | ERROR    | bot.orders | Order failed due to network error: connection timed out
+2026-07-04 18:01:58 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=0.01 price=65000.0 stop_price=None
+2026-07-04 18:01:58 | INFO     | bot.orders | Order placed successfully: {'orderId': 1, 'status': 'FILLED', 'executedQty': '0.01', 'avgPrice': '65000.0', 'clientOrderId': 'x-test'}
+2026-07-04 18:01:58 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=0.01 price=None stop_price=None
+2026-07-04 18:01:58 | INFO     | bot.orders | Order placed successfully: {'orderId': 1, 'status': 'FILLED', 'executedQty': '0.01', 'avgPrice': '65000.0', 'clientOrderId': 'x-test'}
+2026-07-04 18:02:49 | INFO     | bot.orders | Order cancelled by user before placement.
+2026-07-04 18:03:36 | INFO     | bot.orders | Placing LIMIT SELL order | symbol=BTCUSDT qty=2.0 price=76000.0 stop_price=None
+2026-07-04 18:03:36 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 2.0, 'type': 'LIMIT', 'price': 76000.0, 'timeInForce': 'GTC', 'timestamp': 1783168416096, 'recvWindow': 5000, 'signature': '02872aabe5df7cbedc21d803c1c07a0ebce413688e93c370bd45bdadceb87d4b'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 18:03:36 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=502 | body=<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+2026-07-04 18:03:36 | ERROR    | bot.client | API error on POST /fapi/v1/order -> status=502 code=None msg=<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+2026-07-04 18:03:36 | ERROR    | bot.orders | Order rejected by Binance: Binance API error [502] code=None: <html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+2026-07-04 18:04:11 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=10.0 price=None stop_price=None
+2026-07-04 18:04:11 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'quantity': 10.0, 'type': 'MARKET', 'timestamp': 1783168451575, 'recvWindow': 5000, 'signature': '6c4d08e5f87f932a105a4aae1660a622a6c370dc04aa3eb126b6c7f7c3865001'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 18:04:12 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=400 | body={"code":-2019,"msg":"Margin is insufficient."}
+2026-07-04 18:04:12 | ERROR    | bot.client | API error on POST /fapi/v1/order -> status=400 code=-2019 msg=Margin is insufficient.
+2026-07-04 18:04:12 | ERROR    | bot.orders | Order rejected by Binance: Binance API error [400] code=-2019: Margin is insufficient.
+2026-07-04 18:04:49 | INFO     | bot.orders | Placing MARKET BUY order | symbol=BTCUSDT qty=1.0 price=None stop_price=None
+2026-07-04 18:04:49 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'quantity': 1.0, 'type': 'MARKET', 'timestamp': 1783168489874, 'recvWindow': 5000, 'signature': 'f9b2f42fc8c09c2075faa9ab3e61632db6c8337ee4b3ab7ed4ac507d7a3ef8dd'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 18:04:50 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18973845977,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"5uo91A8TUYJcZEjWWNBYVh","price":"0.00","origQty":"1.0000","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783168491107}
+2026-07-04 18:04:50 | INFO     | bot.orders | Order placed successfully: {'orderId': 18973845977, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': '5uo91A8TUYJcZEjWWNBYVh', 'price': '0.00', 'origQty': '1.0000', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783168491107}
+2026-07-04 18:05:16 | INFO     | bot.orders | Placing MARKET SELL order | symbol=BTCUSDT qty=1.0 price=None stop_price=None
+2026-07-04 18:05:16 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'BTCUSDT', 'side': 'SELL', 'quantity': 1.0, 'type': 'MARKET', 'timestamp': 1783168516393, 'recvWindow': 5000, 'signature': '1e7d7724488a52a25239aecb6702214e081136898fcc08029c5db657b330e5f2'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 18:05:17 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":18973936018,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"FykRwuwqwNda7QR5uZN0XJ","price":"0.00","origQty":"1.0000","executedQty":"0.0000","cumQty":"0.0000","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"0.00","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783168517632}
+2026-07-04 18:05:17 | INFO     | bot.orders | Order placed successfully: {'orderId': 18973936018, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'FykRwuwqwNda7QR5uZN0XJ', 'price': '0.00', 'origQty': '1.0000', 'executedQty': '0.0000', 'cumQty': '0.0000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783168517632}
+2026-07-04 18:09:33 | INFO     | bot.orders | Placing MARKET SELL order | symbol=SOLUSDT qty=1.0 price=None stop_price=None
+2026-07-04 18:09:33 | DEBUG    | bot.client | REQUEST POST https://testnet.binancefuture.com/fapi/v1/order | params={'symbol': 'SOLUSDT', 'side': 'SELL', 'quantity': 1.0, 'type': 'MARKET', 'timestamp': 1783168773417, 'recvWindow': 5000, 'signature': 'a7f8a76cdf2da0497d3f716f24e7d91b6f7a106b5d6f3564209f1cc96d64caca'} | headers={'X-MBX-APIKEY': 'h9vh...WZl8'}
+2026-07-04 18:09:34 | DEBUG    | bot.client | RESPONSE POST https://testnet.binancefuture.com/fapi/v1/order | status=200 | body={"orderId":2798689991,"symbol":"SOLUSDT","status":"NEW","clientOrderId":"PKsR127WgdKOSO5D4zrfmL","price":"0.0000","origQty":"1.00","executedQty":"0.00","cumQty":"0.00","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"0.0000","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"EXPIRE_MAKER","goodTillDate":0,"updateTime":1783168774667}
+2026-07-04 18:09:34 | INFO     | bot.orders | Order placed successfully: {'orderId': 2798689991, 'symbol': 'SOLUSDT', 'status': 'NEW', 'clientOrderId': 'PKsR127WgdKOSO5D4zrfmL', 'price': '0.0000', 'origQty': '1.00', 'executedQty': '0.00', 'cumQty': '0.00', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.0000', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1783168774667}
