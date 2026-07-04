@@ -59,10 +59,11 @@ class TestNonInteractiveArgs(unittest.TestCase):
 
     def test_missing_credentials_returns_one(self):
         with patch("cli.BinanceFuturesTestnetClient"):
-            with patch.dict("os.environ", {}, clear=True):
-                exit_code = cli.main(
-                    ["--symbol", "BTCUSDT", "--side", "BUY", "--type", "MARKET", "--quantity", "0.01"]
-                )
+            with patch("cli.load_dotenv"):  # prevent .env from loading real keys
+                with patch.dict("os.environ", {}, clear=True):
+                    exit_code = cli.main(
+                        ["--symbol", "BTCUSDT", "--side", "BUY", "--type", "MARKET", "--quantity", "0.01"]
+                    )
         self.assertEqual(exit_code, 1)
 
     def test_binance_api_error_returns_two(self):

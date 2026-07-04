@@ -33,7 +33,7 @@ from dotenv import load_dotenv
 from bot.client import BinanceAPIError, BinanceFuturesTestnetClient, NetworkError, DEFAULT_BASE_URL
 from bot.logging_config import get_logger
 from bot.orders import OrderManager, OrderRequest
-from bot.utils import safe_print
+from bot.utils import safe_print, print_banner, RED, BOLD, RESET
 from bot.validators import (
     ValidationError,
     validate_order_type,
@@ -110,7 +110,8 @@ def _prompt(label: str, validator, *validator_args):
 
 def run_interactive() -> OrderRequest:
     """Guided prompt flow: asks one field at a time, validating as it goes."""
-    safe_print("=== Interactive Order Builder (Binance Futures Testnet) ===")
+    print_banner()
+    safe_print(f"{BOLD}Fill in your order details below:{RESET}\n")
     symbol = _prompt("Symbol (e.g. BTCUSDT): ", validate_symbol)
     side = _prompt("Side (BUY/SELL): ", validate_side)
     order_type = _prompt("Order type (MARKET/LIMIT/STOP_LIMIT): ", validate_order_type)
@@ -200,7 +201,7 @@ def main(argv=None) -> int:
             request = build_order_from_args(args)
     except ValidationError as exc:
         logger.error("Input validation failed: %s", exc)
-        safe_print(f"❌ Invalid input: {exc}")
+        safe_print(f"{RED}{BOLD}❌ Invalid input:{RESET}{RED} {exc}{RESET}")
         return 1
 
     api_key = args.api_key or os.getenv("BINANCE_API_KEY")
@@ -208,15 +209,17 @@ def main(argv=None) -> int:
 
     if not api_key or not api_secret:
         safe_print(
-            "❌ Missing API credentials. Set BINANCE_API_KEY / BINANCE_API_SECRET "
-            "(env vars or .env file) or pass --api-key / --api-secret."
+            f"{RED}{BOLD}❌ Missing API credentials.{RESET}{RED} Set BINANCE_API_KEY / BINANCE_API_SECRET "
+            f"(env vars or .env file) or pass --api-key / --api-secret.{RESET}"
         )
         return 1
 
     try:
         client = BinanceFuturesTestnetClient(api_key, api_secret, base_url=args.base_url)
         manager = OrderManager(client)
-        manager.place(request)
+        result = manager.place(request, skip_confirm=not interactive)
+        if not result:
+            return 130  # user cancelled
         return 0
     except BinanceAPIError:
         return 2
@@ -224,7 +227,7 @@ def main(argv=None) -> int:
         return 3
     except Exception as exc:  # last-resort safety net; never crash silently
         logger.exception("Unexpected error while placing order")
-        safe_print(f"❌ Unexpected error: {exc}")
+        safe_print(f"{RED}{BOLD}❌ Unexpected error:{RESET}{RED} {exc}{RESET}")
         return 4
 
 
