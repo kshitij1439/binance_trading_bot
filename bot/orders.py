@@ -9,7 +9,14 @@ from typing import Any, Dict, Optional
 
 from bot.client import BinanceAPIError, BinanceFuturesTestnetClient, NetworkError
 from bot.logging_config import get_logger
-from bot.utils import safe_print, confirm_order, BOLD, CYAN, GREEN, RED, YELLOW, DIM, RESET
+from bot.utils import (
+    print_order_summary,
+    print_order_response,
+    print_error,
+    confirm_order,
+    spinner_context,
+    console,
+)
 
 logger = get_logger(__name__)
 
@@ -61,25 +68,21 @@ class OrderManager:
     def __init__(self, client: BinanceFuturesTestnetClient):
         self.client = client
 
-    def print_summary(self, req: OrderRequest) -> None:
-        safe_print(f"\n{CYAN}{BOLD}=== Order Request Summary ==={RESET}")
-        safe_print(f"  Symbol      : {BOLD}{req.symbol}{RESET}")
-        side_color = GREEN if req.side == "BUY" else RED
-        safe_print(f"  Side        : {side_color}{BOLD}{req.side}{RESET}")
-        safe_print(f"  Type        : {req.order_type}")
-        safe_print(f"  Quantity    : {req.quantity}")
-        if req.price is not None:
-            safe_print(f"  Price       : {req.price}")
-        if req.stop_price is not None:
-            safe_print(f"  Stop Price  : {req.stop_price}")
-        safe_print(f"{CYAN}=============================={RESET}")
-
     def place(self, req: OrderRequest, skip_confirm: bool = False) -> Dict[str, Any]:
-        self.print_summary(req)
+        # Display rich order summary panel
+        print_order_summary(
+            symbol=req.symbol,
+            side=req.side,
+            order_type=req.order_type,
+            quantity=req.quantity,
+            price=req.price,
+            stop_price=req.stop_price,
+        )
 
         if not skip_confirm and not confirm_order():
             logger.info("Order cancelled by user before placement.")
             return {}
+
         logger.info(
             "Placing %s %s order | symbol=%s qty=%s price=%s stop_price=%s",
             req.order_type,
@@ -91,28 +94,25 @@ class OrderManager:
         )
 
         try:
-            response = self.client.place_order(**req.to_binance_params())
+            # Show spinner animation while API call is in flight
+            with spinner_context():
+                response = self.client.place_order(**req.to_binance_params())
         except BinanceAPIError as exc:
             logger.error("Order rejected by Binance: %s", exc)
-            safe_print(f"{RED}{BOLD}❌ FAILED:{RESET}{RED} Binance rejected the order — {exc.message} (code={exc.code}){RESET}")
+            print_error(
+                "Binance rejected the order",
+                f"{exc.message} (code={exc.code})"
+            )
             raise
         except NetworkError as exc:
             logger.error("Order failed due to network error: %s", exc)
-            safe_print(f"{RED}{BOLD}❌ FAILED:{RESET}{RED} Network error while placing order — {exc}{RESET}")
+            print_error(
+                "Network error while placing order",
+                str(exc)
+            )
             raise
 
-        self._print_response(response)
+        # Display rich order response panel
+        print_order_response(response)
         logger.info("Order placed successfully: %s", response)
         return response
-
-    def _print_response(self, response: Dict[str, Any]) -> None:
-        safe_print(f"\n{CYAN}{BOLD}=== Order Response ==={RESET}")
-        safe_print(f"  Order ID     : {BOLD}{response.get('orderId')}{RESET}")
-        safe_print(f"  Status       : {GREEN}{response.get('status')}{RESET}")
-        safe_print(f"  Executed Qty : {response.get('executedQty')}")
-        avg_price = response.get("avgPrice")
-        if avg_price is not None:
-            safe_print(f"  Avg Price    : {avg_price}")
-        safe_print(f"  Client OrderID: {DIM}{response.get('clientOrderId')}{RESET}")
-        safe_print(f"{CYAN}======================={RESET}")
-        safe_print(f"{GREEN}{BOLD}✅ SUCCESS: Order placed on Binance Futures Testnet.{RESET}\n")

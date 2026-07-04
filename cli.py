@@ -33,7 +33,7 @@ from dotenv import load_dotenv
 from bot.client import BinanceAPIError, BinanceFuturesTestnetClient, NetworkError, DEFAULT_BASE_URL
 from bot.logging_config import get_logger
 from bot.orders import OrderManager, OrderRequest
-from bot.utils import safe_print, print_banner, RED, BOLD, RESET
+from bot.utils import safe_print, print_banner, print_error, console
 from bot.validators import (
     ValidationError,
     validate_order_type,
@@ -98,20 +98,20 @@ def _prompt(label: str, validator, *validator_args):
     """
     while True:
         try:
-            raw = input(label)
+            raw = console.input(f"[bold cyan]{label}[/]")
         except (EOFError, KeyboardInterrupt):
-            safe_print("\nCancelled.")
+            console.print("\n[dim]Cancelled.[/dim]")
             sys.exit(130)
         try:
             return validator(raw, *validator_args) if validator_args else validator(raw)
         except ValidationError as exc:
-            safe_print(f"  ⚠ {exc}  — try again.")
+            console.print(f"  [bold yellow]⚠[/] {exc}  — try again.")
 
 
 def run_interactive() -> OrderRequest:
     """Guided prompt flow: asks one field at a time, validating as it goes."""
     print_banner()
-    safe_print(f"{BOLD}Fill in your order details below:{RESET}\n")
+    console.print("[bold]Fill in your order details below:[/bold]\n")
     symbol = _prompt("Symbol (e.g. BTCUSDT): ", validate_symbol)
     side = _prompt("Side (BUY/SELL): ", validate_side)
     order_type = _prompt("Order type (MARKET/LIMIT/STOP_LIMIT): ", validate_order_type)
@@ -132,7 +132,7 @@ def run_interactive() -> OrderRequest:
             if tif in ("GTC", "IOC", "FOK"):
                 time_in_force = tif
                 break
-            safe_print("  ⚠ Must be one of GTC, IOC, FOK — try again.")
+            console.print("  [bold yellow]⚠[/] Must be one of GTC, IOC, FOK — try again.")
 
     return OrderRequest(
         symbol=symbol,
@@ -201,16 +201,16 @@ def main(argv=None) -> int:
             request = build_order_from_args(args)
     except ValidationError as exc:
         logger.error("Input validation failed: %s", exc)
-        safe_print(f"{RED}{BOLD}❌ Invalid input:{RESET}{RED} {exc}{RESET}")
+        print_error("Invalid input", str(exc))
         return 1
 
     api_key = args.api_key or os.getenv("BINANCE_API_KEY")
     api_secret = args.api_secret or os.getenv("BINANCE_API_SECRET")
 
     if not api_key or not api_secret:
-        safe_print(
-            f"{RED}{BOLD}❌ Missing API credentials.{RESET}{RED} Set BINANCE_API_KEY / BINANCE_API_SECRET "
-            f"(env vars or .env file) or pass --api-key / --api-secret.{RESET}"
+        print_error(
+            "Missing API credentials",
+            "Set BINANCE_API_KEY / BINANCE_API_SECRET (env vars or .env file) or pass --api-key / --api-secret."
         )
         return 1
 
@@ -227,7 +227,7 @@ def main(argv=None) -> int:
         return 3
     except Exception as exc:  # last-resort safety net; never crash silently
         logger.exception("Unexpected error while placing order")
-        safe_print(f"{RED}{BOLD}❌ Unexpected error:{RESET}{RED} {exc}{RESET}")
+        print_error("Unexpected error", str(exc))
         return 4
 
 
